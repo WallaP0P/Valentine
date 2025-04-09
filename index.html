@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="it">
+<!--Author:Wallap-->
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Will you be my valentine?</title>
+</head>
+<body>
+    <img src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.gif" alt="Cute bear holding roses" title="Please be my valentine" style="width: 300px;">
+    <h1>Will you be my valentine?</h1>
+    <div class="button-container">
+        <button id="yesButton">Yes</button> 
+        <button id="noButton">No</button>
+    </div>
+    <script>
+        const yesButton = document.getElementById('yesButton');
+        const noButton = document.getElementById('noButton');
+        const noButtonTexts = [
+            "Are you sure?",
+            "Really Sure?",
+            "Are you positive?",
+            "Pookie please...",
+            "Just think about it!",
+            "If you say no, I will be very sad",
+            "I will be very sad...",
+            "I will be very very very very very sad..."
+        ];
+        let clickCount = 0;
+        noButton.addEventListener("click", () => {
+            const currentSize = parseInt(window.getComputedStyle(yesButton).fontSize);
+            yesButton.style.fontSize = (currentSize + 62) + 'px'; 
+            if (clickCount < noButtonTexts.length) {
+                noButton.textContent = noButtonTexts[clickCount];
+                clickCount++;
+            }
+        });
+        yesButton.addEventListener('click', () => {
+            const img = document.querySelector('img'); 
+            img.src = 'https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif';
+            document.body.innerHTML = img.outerHTML + '<h1> Yay, I love you too! (˶˃ ᵕ ˂˶) .ᐟ❤️</h1>';
+        });
+    </script>
+</body>
+</html>
